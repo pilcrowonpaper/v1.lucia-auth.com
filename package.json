@@ -1,8 +1,14 @@
 {
-	"name": "lucia-v1-documentation",
+	"name": "v1.lucia-auth.com",
 	"type": "module",
 	"version": "0.0.1",
 	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/pilcrowOnPaper/v1.lucia-auth.com"
+	},
+	"author": "pilcrowOnPaper",
+	"license": "MIT",
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
