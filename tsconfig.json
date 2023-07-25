@@ -1,0 +1,17 @@
+{
+	"extends": "astro/tsconfigs/strict",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@layouts/*": ["src/layouts/*"],
+			"@utils/*": ["src/utils/*"],
+			"@components/*": ["src/components/*"],
+			"@cela/*": ["integrations/cela/*"],
+			"@search/*": ["search/*"],
+			"@server/*": ["src/server/*"],
+			"@markdown/*": ["integrations/markdown/*"]
+		},
+		"jsx": "preserve",
+		"jsxImportSource": "solid-js"
+	}
+}

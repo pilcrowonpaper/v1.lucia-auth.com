@@ -1,0 +1,61 @@
+---
+import ThemeButton from "@components/ThemeButton";
+import Search from "@components/icons/Search.astro";
+
+const themeCookie = Astro.cookies.get("theme");
+let theme = themeCookie.value ?? "light";
+if (theme !== "light" && theme !== "dark") {
+	theme = "light";
+}
+
+type Props = {
+	includeSearch?: boolean;
+};
+---
+
+
+<div
+	class="pointer-events-none fixed left-0 z-40 w-full bg-white dark:bg-zinc-900 dark:text-zinc-200 xl:bg-transparent dark:xl:bg-transparent"
+>
+<div class="bg-main py-1.5 pointer-events-auto px-4 sm:px-8">
+	<p class="text-sm text-white mx-auto w-fit">You're currently reading Lucia v1 docs - <a href="https://lucia-auth.com" class="hover:underline">Head over to the v2 docs</a></p>
+</div>
+	<div
+		class="flex place-content-between place-items-center px-4 pb-2 pt-3 sm:px-8"
+	>
+		<div class="flex place-items-center gap-x-4">
+			<a class="pointer-events-auto flex place-items-center" href="/">
+				<img
+					src="/logo.svg"
+					alt="Lucia logo"
+					width="100"
+					height="100"
+					class="h-6 w-6"
+				/>
+				<p class="text-2xl font-semibold">Lucia</p>
+			</a>
+		</div>
+		<div
+			class="pointer-events-auto flex place-items-center divide-zinc-200 dark:divide-zinc-700 sm:divide-x"
+		>
+			<div class="flex place-items-center gap-x-4 pl-4">
+				{
+					Astro.props.includeSearch && (
+						<a
+							class="block rounded p-1 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+							id="search-button"
+							href="/search"
+						>
+							<div class="h-5 w-5">
+								<Search />
+							</div>
+						</a>
+					)
+				}
+
+				<ThemeButton client:load initialTheme={theme} />
+			</div>
+		</div>
+	</div>
+	<slot />
+</div>
